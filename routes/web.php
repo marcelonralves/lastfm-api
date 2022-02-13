@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\GenerateController;
+use App\Http\Controllers\ViewController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [ViewController::class, 'index']);
+Route::post('/generate', [GenerateController::class, 'render'])->name('generate');
